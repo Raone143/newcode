@@ -1,0 +1,21 @@
+
+.grid{
+margin-left:14%;
+
+
+}
+.span{
+width:26%;
+
+background:#41bc81; 
+margin:10px 10px 0 5px ;
+float:left;
+}
+
+.span:hover
+{
+background:#07b3d3; 
+box-shadow:10px 10px 20px 10px SILVER;
+cursor:pointer;
+}
+

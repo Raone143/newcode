@@ -1,0 +1,71 @@
+
+.grid{
+    margin: 0 auto;
+    width: 1000px;
+
+
+}
+.span{
+background: none repeat scroll 0 0 #fff;
+    border: 1px solid #999;
+    border-radius: 5px;
+    float: left;
+    margin: 10px 10px 0 5px;
+    padding: 2%;
+    width: 26.8%;
+	
+}
+
+.span:hover
+{ 
+box-shadow:10px 10px 20px 10px SILVER;
+cursor:pointer;
+background: #1e5799; /* Old browsers */
+background: -moz-linear-gradient(top, #1e5799 0%, #6568bc 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(100%,#6568bc)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #1e5799 0%,#6568bc 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #1e5799 0%,#6568bc 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #1e5799 0%,#6568bc 100%); /* IE10+ */
+background: linear-gradient(to bottom, #1e5799 0%,#6568bc 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#6568bc',GradientType=0 ); /* IE6-9 */
+border:1px solid #ddd;
+color:#fff;
+}
+.span > img {
+    float: left;
+}
+
+.span > h3 {
+    float: left;
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 50px;
+    margin: 0 0 0 12px;
+	text-transform: capitalize;
+	color:#551a8b;
+	display:block;
+}
+.span > h3:hover {
+	color:#fff;
+}
+
+.span > a > img {
+    float: left;
+}
+
+.span > a > h3 {
+    float: left;
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 50px;
+    margin: 0 0 0 12px;
+	text-transform: capitalize;
+	color:#551a8b;
+	display:block;
+}
+.span > a > h3:hover {
+	color:#fff;
+}
+
+
+

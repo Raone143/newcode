@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+
+#wrapper{width:1000px; margin:0 auto; border:3px solid grey; }
+#home_content{text-align:center; padding:50px 10px; min-height:500px}
+#home_content h2{font-size:50px; color:#06C}
+.loginblocks{padding:10px; border:1px solid silver; width:300px; background-color:#F2F2F2; width:300px; margin:0 auto; margin-top:50px;}
+.logins_table{width:800px; margin:0 auto}
+.loginbtn{width:100px  !important; color:#CCC; background-color:blue;}

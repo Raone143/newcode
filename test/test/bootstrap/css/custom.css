@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+
+
+body {
+	text-align: center;
+
+}
+h1 {
+	margin-bottom: 40px;
+}
+h2 {
+	margin-bottom: 20px;
+}
+#image-modal {
+	background: url('../anchor_image.jpg') no-repeat;
+}
+
+.carousel-indicators {
+    bottom: -10px;
+}

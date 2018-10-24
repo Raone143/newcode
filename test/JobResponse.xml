@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header>
+		<MonsterHeader xmlns="http://schemas.monster.com/MonsterHeader"
+			xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+			<ChannelId xmlns="http://schemas.monster.com/MonsterHeader">58</ChannelId>
+			<MessageData>
+				<MessageId>60237773363388153812024012_jweba204</MessageId>
+				<Timestamp>2014-12-16T06:47:23.625-05:00</Timestamp>
+				<RefToMessageId xmlns="http://schemas.monster.com/MonsterHeader">Company Jobs created on
+					12/16/14 06:47:22 AM</RefToMessageId>
+			</MessageData>
+		</MonsterHeader>
+	</SOAP-ENV:Header>
+	<SOAP-ENV:Body xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+		<JobsResponse xmlns="http://schemas.monster.com/Monster"
+			xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<ProcessingReceipt xmlns="http://schemas.monster.com/Monster">
+				<RequestDocElement>{http://schemas.monster.com/Monster}JobResponse</RequestDocElement>
+				<Status>
+					<ReturnCode returnCodeType="success">0</ReturnCode>
+				</Status>
+			</ProcessingReceipt>
+			<JobResponse xmlns="http://schemas.monster.com/Monster">
+				<JobReference jobRefCode="52cae7096b6a0">
+					<JobTitle>Recruiter</JobTitle>
+				</JobReference>
+				<RecruiterReference userId="204841377" />
+				<FolderReference folderId="180679037">
+					<FolderName>Recruiter</FolderName>
+				</FolderReference>
+				<CompanyReference companyId="34889333">
+					<CompanyXCode>xrtpjobsx</CompanyXCode>
+				</CompanyReference>
+				<JobPostingResponse postingId="143636201">
+					<Location locationId="368">
+						<City>Hartford</City>
+						<State>CT</State>
+						<CountryCode>US</CountryCode>
+						<PostalCode>06118</PostalCode>
+					</Location>
+					<Locations>
+						<Location locationId="368">
+							<City>Hartford</City>
+							<State>CT</State>
+							<CountryCode>US</CountryCode>
+							<PostalCode>06118</PostalCode>
+						</Location>
+					</Locations>
+					<JobCategory monsterId="47" />
+					<JobCategories>
+						<JobCategory monsterId="47" />
+					</JobCategories>
+					<JobOccupations>
+						<JobOccupation categoryId="47" monsterId="11909" />
+					</JobOccupations>
+					<BoardName monsterId="178" />
+					<JobPostingDates>
+						<JobActiveDate>2014-12-16T06:47:23.3469641-05:00</JobActiveDate>
+						<JobExpireDate>2015-02-14T06:47:23.3469641-05:00</JobExpireDate>
+					</JobPostingDates>
+				</JobPostingResponse>
+				<Status>
+					<ReturnCode returnCodeType="success">0</ReturnCode>
+					<Descriptions>
+						<Description descriptionType="warning">ApplywithMonster element
+							found, CustomApplyOnline will be ignored &#xd; </Description>
+						<Description descriptionType="info">Job added. &#xd; Charges:
+							Job-Board(178) PLGId(0): 1; Bold-Board(178): 1 CAN-Duration(14):
+							1 &#xd; </Description>
+					</Descriptions>
+				</Status>
+				<JobCharges>
+					<JobCharge postingId="143636201">
+						<ResourceLicenseId>256128295</ResourceLicenseId>
+						<ChargeQuantity>1</ChargeQuantity>
+					</JobCharge>
+					<JobCharge postingId="143636201">
+						<ResourceLicenseId>245099369</ResourceLicenseId>
+						<ChargeQuantity>1</ChargeQuantity>
+					</JobCharge>
+					<JobCharge postingId="143636201">
+						<ResourceLicenseId>245099429</ResourceLicenseId>
+						<ChargeQuantity>1</ChargeQuantity>
+					</JobCharge>
+				</JobCharges>
+			</JobResponse>
+		</JobsResponse>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

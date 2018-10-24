@@ -1,0 +1,2 @@
+<img src="http://larvoltrials.com/images/Larvol-Trial-Logo-notag.png" alt="LarvolTrials"><br/>
+<div style="text-align:center"><br/>Sorry we are unable to find the page you have requested. Please send a mail to <a href="mail:larvoldelta@larvol.com">larvoldelta@larvol.com</a>.</div>

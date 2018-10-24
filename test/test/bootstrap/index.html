@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Carousel Inside Modal Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/custom.css" rel="stylesheet" media="screen">
+</head>
+<body>
+	
+
+	<!-- Button trigger modal -->
+	<a data-toggle="modal" id="image-modal" href="#myModal">Click Here</a>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Carousel Inside Modal</h4>
+				</div>
+				<div class="modal-body" style="border:1px solid red;width:100%">
+
+
+					<div id="carousel-example-generic" class="carousel slide" style="border:1px solid red">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						</ol>
+
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner">
+							<div class="item active">
+								<div style="float:left;border:1px solid red;">
+									<img src="images/1.jpg" width="400" height="400" />
+								</div>
+								<div style="float:left;border:1px solid red;">
+									<h3>Testing1</h3>
+								</div>
+
+							</div>
+
+							<div class="item">
+								<div style="float:left;border:1px solid red;">
+									<img src="images/2.jpg" width="400" height="400" />
+								</div>
+								<div style="float:left;border:1px solid red;">
+									<h3>Testing2</h3>
+								</div>
+							</div>
+
+							<div class="item">
+								<div style="float:left;border:1px solid red;">
+									<img src="images/3.jpg" width="400" height="400" />
+								</div>
+								<div style="float:left;border:1px solid red;">
+									<h3>Testing3</h3>
+								</div>
+
+							</div>
+
+						</div>
+
+						<!-- Controls -->
+						<a class="left carousel-control" href="#carousel-example-generic"
+							data-slide="prev"> <span class="icon-prev"></span>
+						</a> <a class="right carousel-control"
+							href="#carousel-example-generic" data-slide="next"> <span
+							class="icon-next"></span>
+						</a>
+					</div>
+
+				</div>
+				<!-- End Carousel Code -->
+
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
+
+
+
+
+
+
+	<!-- JavaScript plugins (requires jQuery) -->
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Starts Carousel Automatically -->
+	<script>
+		$(document).ready(function() {
+			$('.carousel').carousel()
+		});
+	</script>
+</body>
+</html>
