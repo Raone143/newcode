@@ -1,0 +1,239 @@
+<script src="vue.js"></script>
+<script src="jquery.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+<style>
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+  transition: opacity .3s ease;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+  float:right;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 400px;
+  height:500px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-default-button {
+  float: right;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+</style>
+<!-- template for the modal component -->
+<script type="text/x-template" id="modal-template">
+    <transition name="modal">
+      <div class="modal-mask">
+        <div class="modal-wrapper">
+          <div class="modal-container">
+  
+            
+  
+            <div class="modal-body">
+			
+              
+			  <div v-for="(item,index) in vat.userdetails">
+              <div  style="background-color:yellow;width:0px auto;padding:20px 40px;text-align:center;"  @click="vat.getcall(''+item.id+'')">{{item.username}} : {{item.id}}<div style="float:right;"><i class="fa fa-chevron-circle-down"  aria-hidden="true"></i></div></div><br>
+                <form v-bind:id="'frmUserInfo'+item.id+''" v-bind:name="'frmUserInfo'+item.id+''" method="post">
+							
+								
+				<div v-bind:id="item.id" style="display:none">
+				<div  style="overflow:hidden;">
+				<div  style="width:33%;height:20%;float:left;overflow:hidden;text-align:center;">
+				<label>Region</label><br>
+				<select name="region_info" id="region_info"  >
+				<option v-for="region_info in vat.regions"  name="region_info"    :value="region_info.id" :selected="region_info.id == item.Region ? 'selected' : ''" >{{region_info.name}}</option>
+				
+				
+				</select> 
+				</div>
+				<div  style="width:33%;height:20%;float:left;overflow:hidden;text-align:center;">
+				<label>Role</label><br>
+				<select name="region_info3" id="region_info3"  >
+				<option v-for="region_info3 in vat.role"  name="region_info3"    :value="region_info3.id" :selected="region_info3.id == item.Role ? 'selected' : ''" >{{region_info3.name}}</option>
+				
+				
+				</select> 
+				</div>
+				
+				<div  style="width:33%;height:20%;float:left;text-align:center;">
+				<label>Level</label><br>
+				<select name="region_info1" id="region_info1"  >
+				<option v-for="region_info1 in vat.level" name="region_info1"  :value="region_info1.id" :selected="region_info1.id == item.Level ? 'selected' : ''"  >{{region_info1.name}}</option>
+				
+				</select> 
+				</div>    
+				<div  style="width:33%;height:20%;float:left;text-align:center;">
+				<label>Language</label><br>
+				<select name="region_info2" id="region_info2">
+				<option v-for="region_info2 in vat.language"  :value="region_info2.id" :selected="region_info2.id == item.Language ? 'selected' : ''" >{{region_info2.name}}</option>
+				
+				</select> 
+				</div>
+				
+				<input type="button" class="button" v-on:click="vat.changeoptions(item.id)" value="EDIT">
+				</div>
+				
+			 </div>
+			 </form>
+            </div>
+            </div>
+			
+			 <br>
+            <div class="modal-footer">
+              <slot name="footer">
+                
+                <button class="modal-default-button" @click="$emit('close')">
+                  OK
+                </button>
+              </slot>
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </script>
+  
+  <!-- app -->
+  <div id="app">
+     <button style="display:none" id="show-modal" @click="showModal=true" ref="myBtn">Show Modal</button>
+    <!-- use the modal component, pass in the prop -->
+    <modal v-if="showModal" @close="showModal = false">
+      <!--
+        you can use custom content here to overwrite
+        default content
+      -->
+      
+    </modal>
+  </div>
+
+  <script type="text/javascript">
+  // register modal component
+Vue.component('modal', {
+  template: '#modal-template'
+})
+
+var errors=[];
+// start app
+var vat = new Vue({
+  el: '#app',
+  data: {
+    showModal: false,
+    seen:'',
+	userdetails:'',
+	user:'',
+	errors:[]
+  },
+  methods: {
+    getcall: function(id) {
+	    
+		$('#'+id).toggle();
+		
+    },
+	changeoptions: function(user_id) {
+	
+	
+	
+	    let formdata = $("#frmUserInfo"+user_id).serialize();
+		$.ajax({
+			type: "POST",
+			data : formdata,
+            url: "http://localhost/update_ajax.php?user_id="+user_id,
+            
+            success: function(data) {
+			      console.log(data);
+            }
+        });
+		
+		
+		 
+		 
+	}
+  },
+  mounted: function() {
+		console.log("test");
+		const elem = this.$refs.myBtn;
+        elem.click();
+		var response = '';
+        $.ajax({
+            type: "GET",
+            url: "http://localhost/vuefetch.php",
+            
+            success: (response) => {
+			    console.log(response);
+                this.userdetails = response.users;
+				this.regions = response.regions;
+				this.role = response.role;
+				this.level = response.level;
+				this.language = response.language;
+            }
+        });
+		
+		
+
+  }
+
+});
+console.log(vat);
+  </script>
