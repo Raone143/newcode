@@ -1,0 +1,95 @@
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+#userTable {
+  border: 2px solid #42b983;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+</style>
+</head>
+<body>
+<div id="app">
+<p id="vuejs_date_time"></p>
+<table id="userTable" >
+ 
+	<tr v-for="overviews in overview">
+  <td>
+    {{overviews.id}}
+  </td>
+
+  <td></td>
+  <td class="text-right">
+    {{overviews.employee_name}}
+  </td>
+  <td class="text-right">
+    {{overviews.employee_salary}}
+  </td>
+  <td class="text-right">
+    {{overviews.employee_age}}
+  </td>
+  </tr>
+  
+
+ </table>
+  </div>
+ </body>
+ </html>
+<script>
+	new Vue({
+  el: "#app",
+  data() {
+    return {
+      overview: []
+    }
+
+  },
+  methods: {
+  getOverview() {
+	$.ajax({
+	   url: 'http://dummy.restapiexample.com/api/v1/employees',
+       type: 'get',
+       dataType: 'JSON',
+	   success: function(response){
+            var len = response.length;
+            for(var i=0; i<len; i++){
+                var id = response[i].id;
+                var employee_name = response[i].employee_name;
+                var employee_salary = response[i].employee_salary;
+                var employee_age = response[i].employee_age;
+
+                var tr_str = "<tr>" +
+                    "<td align='center'>" + id + "</td>" +
+                    "<td align='center'>" + employee_name + "</td>" +
+                    "<td align='center'>" + employee_salary + "</td>" +
+                    "<td align='center'>" + employee_age + "</td>" +
+                    "</tr>";
+
+                $("#userTable tbody").append(tr_str);
+				}
+			}
+	   
+	   });
+    },
+	gettime() {
+	var cur_date_vue = new Date();
+	var month = ('0' + (cur_date_vue.getMonth() + 1)).slice(-2);
+	var date = ('0' + cur_date_vue.getDate()).slice(-2);
+	var year = cur_date_vue.getFullYear();
+	var date_formated_vue = year + '/' + month + '/' + date;
+	var time = cur_date_vue.getHours() + ":" + cur_date_vue.getMinutes() + ":" + cur_date_vue.getSeconds();
+	document.getElementById("vuejs_date_time").innerHTML = date_formated_vue +" "+time;
+	  }
+
+  },
+  
+  created(){
+    this.getOverview();
+	this.gettime();
+  }
+})
+</script>
+</body>
